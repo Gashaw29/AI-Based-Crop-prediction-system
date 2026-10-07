@@ -1,0 +1,10 @@
+Metric,Value
+Final Model,Original HistGradientBoosting
+RMSE (tons/ha),0.4734
+MAE (tons/ha),0.3427
+R²,0.8877
+Mean Yield (tons/ha),2.774532327561315
+RMSE (quintals/ha),4.734
+MAE (quintals/ha),3.427
+RMSE Improvement vs Baseline (%),-1.9995485503941715
+MAE Improvement vs Baseline (%),-2.170750513460969
