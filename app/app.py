@@ -24,17 +24,20 @@ st.set_page_config(
 # ============================================
 # 2. LOAD MODEL
 # ============================================
+from pathlib import Path
+import joblib
 
-MODEL_PATH = "final_yield_model.pkl"
+BASE_DIR = Path(__file__).resolve().parent
 
-if not os.path.exists(MODEL_PATH):
-    st.error(
-        "Model file not found. Make sure final_yield_model.pkl "
-        "is in the same folder as app.py."
-    )
-    st.stop()
+MODEL_PATH = BASE_DIR / "final_yield_model.pkl"
 
 model = joblib.load(MODEL_PATH)
+
+
+
+
+
+
 
 
 # ============================================
