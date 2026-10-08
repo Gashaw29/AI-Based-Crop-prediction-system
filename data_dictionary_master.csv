@@ -1,0 +1,41 @@
+column,type,source_file,description,derivation
+plot_id,str,crop_yield_train / crop_yield_leaderboard_test,Unique identifier for each agricultural plot.,Original field; not engineered.
+region,str,crop_yield_train / crop_yield_leaderboard_test,Administrative region of the agricultural plot.,Cleaned and standardized region names.
+crop_type,str,crop_yield_train / crop_yield_leaderboard_test,Crop cultivated on the plot.,Cleaned and standardized crop names.
+survey_year,int64,crop_yield_train / crop_yield_leaderboard_test,Survey year associated with the plot observation.,Original field.
+planting_month,str,crop_yield_train / crop_yield_leaderboard_test,Month in which the crop was planted.,"Original categorical field, standardized."
+altitude_m,float64,crop_yield_train / crop_yield_leaderboard_test,Altitude of the agricultural plot in meters.,Original field.
+rainfall_mm_season,float64,crop_yield_train / crop_yield_leaderboard_test,Reported seasonal rainfall for the plot.,Original field.
+farm_size_ha,float64,crop_yield_train / crop_yield_leaderboard_test,Farm or plot size in hectares.,Original field.
+fertilizer_kg_per_ha,float64,crop_yield_train / crop_yield_leaderboard_test,Fertilizer application rate in kilograms per hectare.,Original field.
+improved_seed_used,int64,crop_yield_train / crop_yield_leaderboard_test,Indicator showing whether improved seed was used.,Original field.
+pest_disease_flag,float64,crop_yield_train / crop_yield_leaderboard_test,Indicator for reported pest or disease presence.,Original field.
+soil_quality_index,float64,crop_yield_train / crop_yield_leaderboard_test,Index representing soil quality.,Original field.
+labor_days_per_ha,float64,crop_yield_train / crop_yield_leaderboard_test,Labor input measured in days per hectare.,Original field.
+distance_to_market_km,float64,crop_yield_train / crop_yield_leaderboard_test,Distance from the plot to the market in kilometers.,Original field.
+planting_month_num,int64,crop_yield_train / crop_yield_leaderboard_test,Numeric representation of planting month.,Mapped January=1 through December=12.
+season_temp_mean,float64,regional_weather,Mean temperature during the four-month growing-season window.,Mean of weather observations for planting month and following three months.
+season_temp_min,float64,regional_weather,Minimum monthly average temperature during the growing season.,Minimum of available growing-season temperature observations.
+season_temp_max,float64,regional_weather,Maximum monthly average temperature during the growing season.,Maximum of available growing-season temperature observations.
+season_rain_total,float64,regional_weather,Total rainfall during the growing season.,Sum of available monthly rainfall observations for four growing-season months.
+season_rain_mean,float64,regional_weather,Average monthly rainfall during the growing season.,Mean of available growing-season rainfall observations.
+season_heat_days,float64,regional_weather,Total extreme-heat days during the growing season.,Sum of extreme-heat days across available growing-season months.
+weather_months_available,int64,regional_weather,Number of growing-season months with available weather observations.,Count of matched weather records.
+season_temp_mean.1,float64,Unknown,No description provided.,Unknown.
+season_temp_min.1,float64,Unknown,No description provided.,Unknown.
+season_temp_max.1,float64,Unknown,No description provided.,Unknown.
+season_rain_total.1,float64,Unknown,No description provided.,Unknown.
+season_rain_mean.1,float64,Unknown,No description provided.,Unknown.
+season_heat_days.1,float64,Unknown,No description provided.,Unknown.
+weather_months_available.1,int64,Unknown,No description provided.,Unknown.
+fertilizer_per_ha,float64,crop_yield_train / crop_yield_leaderboard_test,Fertilizer intensity normalized by farm size.,Fertilizer quantity divided by farm size.
+rainfall_difference,float64,Crop yield + regional weather,Difference between reported seasonal rainfall and weather-derived rainfall.,rainfall_mm_season minus season_rain_total.
+rainfall_ratio,float64,Crop yield + regional weather,Ratio between reported seasonal rainfall and weather-derived rainfall.,rainfall_mm_season divided by season_rain_total.
+rain_temp_interaction,float64,regional_weather,Interaction between seasonal rainfall and mean seasonal temperature.,season_rain_total multiplied by season_temp_mean.
+heat_days_per_month,float64,regional_weather,Average extreme-heat days per available growing-season month.,season_heat_days divided by weather_months_available.
+heat_temp_interaction,float64,regional_weather,Interaction between seasonal extreme-heat days and temperature.,season_heat_days multiplied by season_temp_mean.
+labor_per_ha,float64,crop_yield_train / crop_yield_leaderboard_test,Labor input normalized by farm size.,labor_days_per_ha divided by farm_size_ha.
+market_distance_per_ha,float64,crop_yield_train / crop_yield_leaderboard_test,Market distance normalized by farm size.,distance_to_market_km divided by farm_size_ha.
+planting_month_sin,float64,crop_yield_train / crop_yield_leaderboard_test,Cyclic sine representation of planting month.,Sine transformation of planting_month_num.
+planting_month_cos,float64,crop_yield_train / crop_yield_leaderboard_test,Cyclic cosine representation of planting month.,Cosine transformation of planting_month_num.
+yield_tons_per_ha,float64,crop_yield_train,Observed crop yield in tons per hectare; prediction target.,Original target variable; available only in training data.
